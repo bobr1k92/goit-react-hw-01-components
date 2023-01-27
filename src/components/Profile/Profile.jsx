@@ -44,3 +44,6 @@ export default function Profile(
     );
 };
 
+// Profile.propTypes = {
+//   user
+// }
