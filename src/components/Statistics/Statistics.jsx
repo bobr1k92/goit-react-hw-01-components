@@ -3,14 +3,28 @@ import css from './Statistics.module.css';
 
 export default function Statistics({ title, stats}) {
     return (
-        <section class="statistics">
-  <h2 class="title">Upload stats</h2>
+        <section className={css.statistics}>
+  <h2 class={css.title}>Upload stats</h2>
 
-  <ul class="stat-list"> {stats.map(item => <li class="item" key={item.id}>
-      <span class="label">{item.label}</span>
-      <span class="percentage">{item.percentage}%</span>
+  <ul class={css.statList}> {stats.map(item => <li style={{backgroundColor: getRandomHexColor()}} className={css.item} key={item.id}>
+      <span class={css.label}>{item.label}</span>
+      <span class={css.percentage}>{item.percentage}%</span>
     </li>)}
   </ul>
 </section>
-    )
+  )
+};
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
+
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired,
+  ),
 };
