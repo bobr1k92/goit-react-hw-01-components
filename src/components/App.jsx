@@ -4,19 +4,24 @@ import Statistics from './Statistics/Statistics';
 import statistics from 'data/statistics.json';
 import Friends from './Friends/FriendList';
 import friends from 'data/friends.json';
+import TransactionHistory from './TransactionHistory/Transactions';
+import transactions from 'data/transactions.json'
 
 
 export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
+
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
+        paddingTop: 30,
+        paddingBottom: 30,
       }}
     >
       <Profile
@@ -29,6 +34,7 @@ export const App = () => {
       <Statistics
       stats={statistics}/>
       <Friends friends={friends} />
+      <TransactionHistory transaction={transactions}/>
     </div>
   );
 };
