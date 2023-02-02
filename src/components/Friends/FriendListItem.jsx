@@ -14,7 +14,11 @@ export default function FriendsListItem({friend: {avatar, name, isOnline}})  {
 
 
 FriendsListItem.propTyps = {
-    isOnline: PropTypes.bool.isRequired,
-    avatar: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+  friend: PropTypes.arrayOf(
+    PropTypes.shape({
+      isOnline: PropTypes.bool.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 }
