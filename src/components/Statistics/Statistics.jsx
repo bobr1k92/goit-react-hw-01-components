@@ -4,7 +4,7 @@ import css from './Statistics.module.css';
 export default function Statistics({ title, stats}) {
     return (
         <section className={css.statistics}>
-  <h2 class={css.title}>Upload stats</h2>
+  {title && <h2 class={css.title}>{title}</h2>}
 
   <ul class={css.statList}> {stats.map(item => <li style={{backgroundColor: getRandomHexColor()}} className={css.item} key={item.id}>
       <span class={css.label}>{item.label}</span>
